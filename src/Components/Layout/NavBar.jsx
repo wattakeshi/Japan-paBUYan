@@ -1,9 +1,9 @@
 import React from 'react'
-
+import logo from "../../assets/images/logo.jpg"
 const NavBar = () => {
   return (
-    <div className='flex justify-between p-8'>
-      <p className=' text-cor5 opacity-100'> LOGO</p>
+    <div className='flex justify-between items-center bg-rose-900'>
+      <img src={logo} alt="JapanpaBUYan" className="h-16 p-0 rounded-full" />
 
       <div className='flex '>
       <p className=' text-cor5 opacity-100 px-8'>Home </p>

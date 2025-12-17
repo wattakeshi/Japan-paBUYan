@@ -34,7 +34,7 @@ const Categories = () => {
   return (
     <div className='  h-[780px] w-full pt-8 md:pt-16'>
                  <div className='flex justify-between'>
-         <h1 className='pb-8 w-3/4 mx-auto text-cor3 text-center text-[40px] font-bold'> categoriadeprodutos </h1>
+         <h1 className='pb-8 w-3/4 mx-auto text-cor3 text-center text-[20px] md:text-[40px] font-bold'> categoriadeprodutos </h1>
          <p className='hidden md:block pb-8 w-3/4 mx-auto text-cor3 text-center text-[16]'>veja nossos produtos, separados por kaeporjasjeopsajeopasjeaospejaoskeoapskeopsasoeihasioeas</p>
                  </div>
        <div className='grid grid-cols-2 '>

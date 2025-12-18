@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../../assets/images/logo.jpg"
+import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
   <div>
@@ -8,18 +9,18 @@ const NavBar = () => {
       <img src={logo} alt="JapanpaBUYan" className="h-16 p-0 rounded-full" />
 
       <div className='flex '>
-      <p className=' text-cor5 opacity-100 px-8'>Home </p>
-      <p className=' text-cor5 opacity-100 px-8'> CATEGORIAS   </p>
-      <p className=' text-cor5 opacity-100 px-8' >IMPORTECONOSCO </p>
+        <Link to="/" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>HOME</Link>
+        <Link to="/Categories" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>Categories</Link>
+        <Link to="/AboutUS" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>AboutUS</Link>
       </div>
 
       <p className=' text-cor5 opacity-100'>LUGAR DO LOGIN</p>
     </div>
     </div>
     <div className='flex justify-between items-center bg-cor3 w-screen h-12 block md:hidden'>
-            <p className=' text-cor5 opacity-100 px-8'>Home </p>
-      <p className=' text-cor5 opacity-100 px-8'> CATEGORIAS   </p>
-            <p className=' text-cor5 opacity-100 px-8'>Login </p>
+        <Link to="/" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>HOME</Link>
+        <Link to="/Categories" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>Categories</Link>
+        <Link to="/AboutUS" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>AboutUS</Link>
     </div>
 </div>
   )

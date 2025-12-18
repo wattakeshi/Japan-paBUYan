@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-
+import NavBar from '../Components/Layout/NavBar';
 
 const Categories = () => {
 
   return (
+    <div>
+    <NavBar />
     <div className='  h-[780px] w-full pt-8 md:pt-16'>
                  <div className='flex justify-between'>
          <h1 className='pb-8 w-3/4 mx-auto text-cor3 text-center text-[20px] md:text-[40px] font-bold'> Recommendations </h1>
@@ -37,6 +39,7 @@ const Categories = () => {
             </div>
 
        </div>
+    </div>
     </div>
   )
 }

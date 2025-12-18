@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import './App.css'
-import Header from './Components/Header'
-import Categories from './Components/Categories'
-import NavBar from "./Components/Layout/NavBar"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from "./Pages/Home.jsx"
+import Categories from "./Pages/Categories.jsx"
+import AboutUS from './Pages/AboutUS.jsx'
 
 function App() {
 
   return (
-    <div> 
-    <NavBar />
-    <Header />
-    <Categories />
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/categories" element={<Categories/>} />
+      <Route path="/AboutUS" element={<AboutUS/>}/>
+    </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -19,19 +19,19 @@ const Categories = () => {
             </div>)
           )} 
            */}
-            <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[400px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
+            <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[200px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
             '> 
             <p className='text-cor5 font-bold text-[28px] text-center pt-8'>SkinCare</p>
             </div>
-                 <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[400px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
+                 <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[200px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
             '> 
-            <p className='text-cor5 font-bold text-[28px] text-center pt-8'>Drinks/Snacks</p>
+            <p className='text-cor5 font-bold text-[28px] text-center pt-8'>Drink/Snack</p>
             </div>
-                 <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[400px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
+                 <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[200px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
             '> 
             <p className='text-cor5 font-bold text-[28px] text-center pt-8'>Colectibles</p>
             </div>
-                 <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[400px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
+                 <div className='bg-cor2 items-center md:w-2/3 md:h-[400px] h-[200px] justify-center mb-8 md:mx-auto rounded-4xl hover:bg-cor4 mx-2
             '> 
             <p className='text-cor5 font-bold text-[28px] text-center pt-8'>Fashion</p>
             </div>

@@ -1,16 +1,45 @@
-# React + Vite
+  # Japan-PaBUYan
+An On-Demand E-commerce Platform specifically designed to streamline the assisted buying process of Japanese products for customers in the Philippines.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Overview
+This project was developed for a client specializing in personal shopping and package forwarding from Japan to the Philippines. Unlike a traditional online store, this platform acts as a high-efficiency Wishlist and Sourcing Tool.
 
-Currently, two official plugins are available:
+ How it works:
+Exploration
+Users create their wish list and browse through recommended items.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Simplified Identification
+To reduce friction, users identify themselves with basic contact details (Name/Phone) without the need for complex password-managed accounts.
 
-## React Compiler
+Wishlist Creation
+Customers add the specific products they want by providing:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Reference Links
+Direct URLs from Japanese marketplaces (Amazon JP, Rakuten, Mercari, etc.).
 
-## Expanding the ESLint configuration
+Descriptions
+Details such as size, color, or specific instructions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Order Processing
+Once the wishlist is submitted, the data is stored in the backend (Strapi). The final payment, international shipping from Japan, and local delivery in the Philippines are handled privately between the business owner and the customer.
+
+# Tech Stack
+# Frontend
+React.js + Vite
+# Styling
+Tailwind CSS (Mobile-first approach)
+# Backend
+Strapi CMS (Headless)
+# Routing
+React Router Dom
+# Deployment
+Vercel
+
+# Development Status (Personal Note)
+Disclaimer: This project is being developed during my spare time. Due to my current full-time work schedule, progress is made in focused, incremental daily blocks.
+
+Current Technical Decisions:
+
+Static Assets: Currently serving images from the frontend to ensure smooth deployment on free tiers while the final hosting plan is being finalized.
+
+UX Strategy: Priority is given to mobile responsiveness, as the target audience in the Philippines primarily accesses the service via smartphone.

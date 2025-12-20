@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Footer from './Layout/Footer'
 
 
 const Categories = () => {
@@ -37,6 +38,7 @@ const Categories = () => {
             </div>
 
        </div>
+       <Footer />
     </div>
   )
 }

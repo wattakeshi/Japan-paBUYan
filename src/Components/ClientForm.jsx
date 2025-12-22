@@ -51,26 +51,41 @@ const ClientForm = () => {
 
     };
   return (
-    <div className=' bg-cor2 h-[740px] w-full py-12 mt-20'>
+    <div className=' bg-cor2 h-[740px] w-full py-12 '>
        <h1 className='py-8 w-3/4 mx-auto font-bold text-cor5 text-center text-[45px]'> Get Started!</h1>
        
-      <p className='pb-8 w-4/5 mx-auto text-cor5 text-center text-[16px]'> asedasoeijdasioejasioedjasiodejasioedjasiojedioasjeoisajedoisaejaiosjeoiasjeoias</p>
-            <form onSubmit={handleSubmit}>
+      <p className='pb-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'> Fill out the form to create your wishlist, or if you prefer, 
+            reach out to us directly through our social media!</p>
+    
+            <div className='mx-auto text-center'>
+                <a href="https://www.facebook.com/japanpabuyan" target="_blank"  
+               className='text-cor5 hover:text-cor4 transition-colors '>
+               <span className='text-center'>Facebook</span>
+            </a>
+               <span className='text-cor2'>   / /   </span>
+                <a href="https://www.instagram.com/japanpabuyan" target="_blank"  
+               className='text-cor5 hover:text-cor4 transition-colors '>
+               <span className='text-center'>Instagram</span>
+            </a>
+              </div>
+         
+     
+            <form  onSubmit={handleSubmit}>
 
-                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'>Name</p>
+                <p className='pt-4 pb-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Name</p>
                 <input type="text" placeholder='Name' value={name} onChange={((e)=>{setName(e.target.value)})}
                  className='px-4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2 justify-center'/>
 
-                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'>Family name</p>
+                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Family name</p>
                 <input type="text" placeholder='Family Name' value={familyName} onChange={((e)=>{setFamilyName(e.target.value)})}
                 className='px-4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2' />
 
-                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'>Address</p>
+                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Address</p>
                 <input type="text" placeholder='Country / Region/Province / City / Barangay' required
   minLength={15} value={address} onChange={((e)=>{setAddress(e.target.value)})}
                 className='px-4 w-3/4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2' />
 
-                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'>Contact</p> 
+                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Contact</p> 
                 <input type="text" placeholder='Instagram @ or Facebook URL' value={contact} onChange={((e)=>{setContact(e.target.value)})}
                 className=' px-4 w-3/4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2'/>            
 

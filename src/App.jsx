@@ -5,16 +5,22 @@ import Home from "./Pages/Home.jsx"
 import Categories from "./Pages/Categories.jsx"
 import AboutUS from './Pages/AboutUS.jsx'
 import SignUP from './Pages/SignUP.jsx'
+import PrivateRoute from './Components/PrivateRoute.jsx'
 
 function App() {
 
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/categories" element={<Categories/>} />
-      <Route path="/AboutUS" element={<AboutUS/>}/>
+
       <Route path="/SignUP" element={<SignUP />} />
+
+      <Route path="/" element={<PrivateRoute>
+        <Home/></PrivateRoute>} />
+      <Route path="/categories" element={<PrivateRoute>
+        <Categories/></PrivateRoute>} />
+      <Route path="/AboutUS" element={<PrivateRoute>
+        <AboutUS/></PrivateRoute>}/>
     </Routes>
     </BrowserRouter>
   )

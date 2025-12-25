@@ -17,10 +17,10 @@ const NavBar = () => {
       <p className=' text-cor5 opacity-100'>LUGAR DO LOGIN</p>
     </div>
     </div>
-    <div className='flex justify-between items-center bg-cor3 w-screen h-12 block md:hidden py-8'>
+    <div className='flex justify-between items-center bg-cor3 w-screen h-12  md:hidden py-8'>
         <Link to="/" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>HOME</Link>
         <Link to="/Categories" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>Categories</Link>
-        <Link to="/AboutUS" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>AboutUS</Link>
+        <Link to="/AboutUS" className='text-cor5 opacity-100 pl-8 hover:bg-cor2'>AboutUS</Link>
     </div>
 </div>
   )

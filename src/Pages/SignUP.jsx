@@ -5,7 +5,7 @@ import ClientForm from '../Components/ClientForm'
 
 const SignUP = () => {
   return (
-    <div className='min-h-screen w-full bg-[url("../../src/assets/images/sakurabg.png")] pt-[20px]'>
+    <div className='min-h-screen w-full bg-[url("../../src/assets/images/sakurabg.png")] bg-[length:400px] pt-[20px]'>
      <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2 opacity-80'>
       {/* need to ask the client details about how it works, writing examples in portuguese for faster typing/ */}
       <h1 className=" w-3/4 mx-auto font-bold text-cor5 text-center text-[20px]">Welcome to PaBUYan! </h1>

@@ -4,7 +4,7 @@ const FacebookPost =  () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        const POSTURL = `http://localhost:1337/api/facebook-posts?sort=createdAt:desc`
+        const POSTURL = `https://pabuyanbackend.onrender.com/api/facebook-posts?sort=createdAt:desc`
 
         const fetchData = async () => {
              try{

@@ -5,8 +5,8 @@ import ClientForm from '../Components/ClientForm'
 
 const SignUP = () => {
   return (
-    <div className='bg-cor2 pt-[20px]'>
-     <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2'>
+    <div className='min-h-screen w-full bg-[url("../../src/assets/images/sakurabg.png")] pt-[20px]'>
+     <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2 opacity-80'>
       {/* need to ask the client details about how it works, writing examples in portuguese for faster typing/ */}
       <h1 className=" w-3/4 mx-auto font-bold text-cor5 text-center text-[20px]">Welcome to PaBUYan! </h1>
         <p className=' text-cor5 opacity-97 text-[16px] md:text-center'>We are here to make your shopping experience in Japan easier, cheaper, and more personal. Our goal is to bring the best Japanese products directly to your doorstep in the Philippines. </p>
@@ -33,7 +33,7 @@ const SignUP = () => {
 
    
       {/* PAYMENT TERMS */}
-      <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto'>
+      <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto bg-cor2  opacity-80'>
       <h1 className="pt-4 w-3/4 mx-auto font-bold text-cor5 text-center text-[20px]">PAYMENT TERMS</h1>
       <ul className='list-inside list-disc pt-4'>
         <li className='pb-1 text-cor5 opacity-97 text-[16px] md:text-center'><strong>Full payment</strong> is required before shipment.</li>

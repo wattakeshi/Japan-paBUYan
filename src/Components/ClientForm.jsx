@@ -51,7 +51,7 @@ const ClientForm = () => {
 
     };
   return (
-    <div className=' bg-cor2 h-[740px] w-full py-12 '>
+     <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2 opacity-80'>
        <h1 className='py-8 w-3/4 mx-auto font-bold text-cor5 text-center text-[45px]'> Get Started!</h1>
        
       <p className='pb-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'> Fill out the form to create your wishlist, or if you prefer, 

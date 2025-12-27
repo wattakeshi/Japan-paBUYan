@@ -5,7 +5,7 @@ import Footer from '../Components/Layout/Footer';
 const Categories = () => {
 
   return (
-    <div className='min-h-screen w-full bg-[url("../../src/assets/images/sakurabg.png")] bg-[length:400px]'>
+    <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px]'>
     <NavBar />
      <FacebookPost />
      <Footer />

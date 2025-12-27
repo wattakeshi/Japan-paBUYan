@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from "./Pages/Home.jsx"
-import Categories from "./Pages/Categories.jsx"
+import PabuyanNews from "./Pages/PabuyanNews.jsx"
 import AboutUS from './Pages/AboutUS.jsx'
 import SignUP from './Pages/SignUP.jsx'
 import PrivateRoute from './Components/PrivateRoute.jsx'
@@ -17,8 +17,8 @@ function App() {
 
       <Route path="/" element={<PrivateRoute>
         <Home/></PrivateRoute>} />
-      <Route path="/categories" element={<PrivateRoute>
-        <Categories/></PrivateRoute>} />
+      <Route path="/PabuyanNews" element={<PrivateRoute>
+        <PabuyanNews/></PrivateRoute>} />
       <Route path="/AboutUS" element={<PrivateRoute>
         <AboutUS/></PrivateRoute>}/>
     </Routes>

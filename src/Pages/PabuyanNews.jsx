@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../Components/Layout/NavBar';
 import banner from "../assets/images/banner.png"
-import CategoryList from '../Components/CategoryList';
+import FacebookPost from '../Components/FacebookPost';
+import Footer from '../Components/Layout/Footer';
 const Categories = () => {
 
   return (
     <div>
     <NavBar />
-     <CategoryList />
+     <FacebookPost />
+     <Footer />
     </div>
   )
 }

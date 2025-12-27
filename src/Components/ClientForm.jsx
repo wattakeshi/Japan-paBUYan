@@ -59,13 +59,13 @@ const ClientForm = () => {
     
             <div className='mx-auto text-center'>
                 <a href="https://www.facebook.com/japanpabuyan" target="_blank"  
-               className='text-cor5 hover:text-cor4 transition-colors '>
-               <span className='text-center'>Facebook</span>
+               className='text-cor2 font-bold hover:text-cor4 transition-colors '>
+               <span className='text-center rounded-sm border-4 bg-cor5'>Facebook</span>
             </a>
                <span className='text-cor2'>   / /   </span>
                 <a href="https://www.instagram.com/japanpabuyan" target="_blank"  
-               className='text-cor5 hover:text-cor4 transition-colors '>
-               <span className='text-center'>Instagram</span>
+               className='text-cor2 font-bold hover:text-cor4 transition-colors '>
+               <span className='text-center rounded-sm border-4 bg-cor5'>Instagram</span>
             </a>
               </div>
          
@@ -89,7 +89,7 @@ const ClientForm = () => {
                 <input type="text" placeholder='Instagram @ or Facebook URL' value={contact} onChange={((e)=>{setContact(e.target.value)})}
                 className=' px-4 w-3/4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2'/>            
 
-                <input type="submit" className=' mt-8 bg-cor4 border rounded-full mx-auto block font-bold bg-cor2  ' value={loading ? "Saving..." : "Sign Up"}/>
+                <input type="submit" className=' mt-8 bg-cor4 border  mx-auto block font-bold bg-cor2  ' value={loading ? "Saving..." : "Sign Up"}/>
             </form>
     </div>
   )

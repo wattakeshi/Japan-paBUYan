@@ -34,7 +34,7 @@ const ClientForm = () => {
         const resJSON = await res.json();
 
         if(res.ok){
-         localStorage.setItem("pabuyan_user_id", resJSON.data.id);
+         localStorage.setItem("pabuyan_user_id", resJSON.data.documentId);
          localStorage.setItem("pabuyan_user_name", name);
          navigate("/");
         }else{

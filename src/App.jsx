@@ -6,6 +6,7 @@ import PabuyanNews from "./Pages/PabuyanNews.jsx"
 import AboutUS from './Pages/AboutUS.jsx'
 import SignUP from './Pages/SignUP.jsx'
 import PrivateRoute from './Components/PrivateRoute.jsx'
+import Profile from "./Pages/Profile.jsx"
 
 function App() {
 
@@ -21,6 +22,8 @@ function App() {
         <PabuyanNews/></PrivateRoute>} />
       <Route path="/AboutUS" element={<PrivateRoute>
         <AboutUS/></PrivateRoute>}/>
+      <Route path="/Profile" element={<PrivateRoute>
+        <Profile/></PrivateRoute>} />
     </Routes>
     </BrowserRouter>
   )

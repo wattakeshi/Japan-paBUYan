@@ -92,8 +92,8 @@ const Profile = () => {
   return (
     <div>
       <NavBar />
-          <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px]'>
-{/* Editar seu profile */}
+          <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px] md:py-16 py-4 '>
+
   <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2 opacity-80'>
        <h1 className='py-8 w-3/4 mx-auto font-bold text-cor5 text-center text-[45px]'> Welcome {costumerData.name}!</h1>
        
@@ -135,12 +135,10 @@ const Profile = () => {
            </form>
 
               </div>
-              <div>
-                <button onClick={handleDeleteAccount} className="px-8 py-2  bg-cor5 text-white font-bold rounded-full hover:bg-red-800 transition-all"> DELETE PROFILE </button>
+              <div className='flex px-auto justify-center pt-8 '>
+                <button onClick={handleDeleteAccount} className=" px-8 py-2  bg-cor5 text-white font-bold  hover:bg-red-800 transition-all"> DELETE PROFILE </button>
               </div>
-  
-
-{/* LOGOUT */}
+              
 </div>
       <Footer />
       

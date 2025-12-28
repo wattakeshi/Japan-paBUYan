@@ -12,15 +12,16 @@ const NavBar = () => {
         <Link to="/" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>HOME</Link>
         <Link to="/PabuyanNews" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>PabuyanNews</Link>
         <Link to="/AboutUS" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>AboutUS</Link>
+       
       </div>
 
-      <p className=' text-cor5 opacity-100'>LUGAR DO LOGIN</p>
+       <Link to="/Profile" className='text-cor5 opacity-100 px-8 hover:bg-cor2'>Profile</Link>
     </div>
     </div>
     <div className='flex justify-between items-center bg-cor3  h-12  md:hidden py-8'>
         <Link to="/" className='text-cor5 opacity-100 px-4 hover:bg-cor2 !font-bold'>HOME</Link>
         <Link to="/PabuyanNews" className='text-cor5 opacity-100 px-4 hover:bg-cor2 !font-bold'>NEWS</Link>
-        <Link to="/AboutUS" className='text-cor5 opacity-100 px-4 hover:bg-cor2 !font-bold'>AboutUS</Link>
+        <Link to="/Profile" className='text-cor5 opacity-100 px-4 hover:bg-cor2 !font-bold'>Profile</Link>
     </div>
 </div>
   )

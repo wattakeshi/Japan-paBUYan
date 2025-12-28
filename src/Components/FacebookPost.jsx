@@ -29,7 +29,7 @@ const FacebookPost =  () => {
   return (
 
     
-<div className='flex flex-wrap justify-center gap-6 p-4'>
+<div className='flex flex-wrap justify-center gap-6 p-4 mb-20 mt-4'>
 
     {/* TESTE */}
     {posts.map(post => (

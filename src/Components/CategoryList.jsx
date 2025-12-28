@@ -10,7 +10,7 @@ const Categories = () => {
          <h1 className='pb-8 w-3/4 mx-auto text-cor3 text-center text-[20px] md:text-[40px] font-bold'> Recommendations </h1>
          <p className='hidden md:block pb-8 w-3/4 mx-auto text-cor3 text-center text-[16]'> [...] </p>
                  </div>
-       <div className='grid grid-cols-2 '>
+       <div className='grid grid-cols-2 mb-20'>
           {/*  TODO : putting every image/category manually for now, need to ask the client if she is going to pay or not for deploy */}
           {/* 
           {categories.map((category)=>(

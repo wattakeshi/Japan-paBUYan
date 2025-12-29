@@ -16,17 +16,17 @@ const AddProductForm = () => {
   const [productName, setProductName] = useState("");
   const [productDetail, setProductDetail] = useState("");
   const [productQty, setProductQty] = useState(1);
-
-  const [productReference, setProductReference] = useState(null); 
-  const [previewURL, setPreviewURL] = useState("")
-  useEffect(()=>{
-    if(!productReference){
-      return setPreviewURL("")
-    }
-      const url = URL.createObjectURL(productReference);
-      setPreviewURL(url);
-      return ;
-  },[productReference])
+// TODO: IMAGE UPLOAD
+  // const [productReference, setProductReference] = useState(null); 
+  // const [previewURL, setPreviewURL] = useState("")
+  // useEffect(()=>{
+  //   if(!productReference){
+  //     return setPreviewURL("")
+  //   }
+  //     const url = URL.createObjectURL(productReference);
+  //     setPreviewURL(url);
+  //     return ;
+  // },[productReference])
 
 
   const handleAddProduct = () => {
@@ -35,16 +35,69 @@ const AddProductForm = () => {
       name: productName,
       details: productDetail,
       qty: productQty,
-      reference: productReference,
-      preview: previewURL,
+      // reference: productReference,
+      // preview: previewURL,
     }
     setWishList([...wishList, newProduct])
     
     setProductName("")
     setProductDetail("")
     setProductQty(1)
-    setProductReference(null)
+    // setProductReference(null)
   }
+
+  const handleSubmitWishList = async () => {
+  if (wishList.length === 0) return window.alert("Your Wish-List is empty!");
+  const userId = localStorage.getItem("pabuyan_user_id");
+
+  try {
+    const wishlistRes = await fetch("http://localhost:1337/api/wishlists", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        data: {
+       costumer: userId, 
+       orderstatus: "Pending",
+          publishedAt: new Date(), 
+        }
+      }) });
+
+    const wishlistData = await wishlistRes.json();
+    const wishlistId = wishlistData.data.documentId; 
+    console.log("ID da Wishlist criada:", wishlistId);
+
+   for (const product of wishList) {
+  const productData = {
+    data: { // O Strapi v5 exige o 'data' aqui dentro
+      name: product.name,
+      details: product.details || "",
+      qty: Number(product.qty),
+      wishlist: wishlistId 
+    }
+  };
+
+  const res = await fetch("http://localhost:1337/api/requestedproducts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" }, // Aqui usamos JSON
+    body: JSON.stringify(productData),
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json();
+    console.error("ERRO TESTE JSON:", errorData);
+  } else {
+    console.log("SUCESSO COM JSON!");
+  }
+}
+    setWishList([]);
+    localStorage.removeItem("pabuyan_wishList");
+
+  } catch (error) {
+    alert("Error linking your wishlist.");
+  }
+};
+      
+
   return (
 <div className="flex flex-col items-center w-full max-w-lg mx-auto gap-6 mt-10">
   
@@ -53,7 +106,7 @@ const AddProductForm = () => {
      <input 
       type="text" value={productName} onChange={(e)=>setProductName(e.target.value)}
       placeholder="Product name"
-      className="w-full flex-1 bg-white/10 border border-white/20 rounded-full px-6 py-3 text-white outline-none focus:border-cor5 transition-all"
+      className="w-full flex-1 bg-white/10 text-center border border-white/20 rounded-full px-6 py-3 text-white outline-none focus:border-cor5 transition-all"
     />
 </div>
 
@@ -62,21 +115,21 @@ const AddProductForm = () => {
      <input 
       type="text" value={productDetail} onChange={(e)=>setProductDetail(e.target.value)}
       placeholder="Color / Size / Flavor / Brand"
-      className="w-full flex-1 bg-white/10 border border-white/20 rounded-full px-6 py-3 text-white outline-none focus:border-cor5"
+      className="w-full flex-1 bg-white/10 border text-center border-white/20 rounded-full px-6 py-3 text-white outline-none focus:border-cor5"
     />
 </div>
 <div className="w-full flex flex-col sm:flex-row ">
     <div className=" flex items-center">
-       <p className="sm:w-32 mx-auto text-center sm:text-right font-bold text-cor5/80">Qty</p>
+       <p className="sm:w-32 mx-auto text-center sm:text-right font-bold text-cor5/80">Quantity</p>
        </div>
         <input 
         type="number" value={productQty} onChange={(e)=>setProductQty(e.target.value)}
-        className="w-full bg-white/10 border border-white/20 rounded-full px-6 py-3 text-white"
+        className="w-full bg-white/10 border border-white/20 rounded-full px-6 py-3 text-center text-white"
       />
     
 </div>
-
-<div className="w-full flex flex-col sm:flex-row items-center gap-4 mt-2">
+{/* TODO: IMAGE UPLOAD */}
+{/* <div className="w-full flex flex-col sm:flex-row items-center gap-4 mt-2">
     <div className="sm:w-32"></div> 
      <label className="flex-1 cursor-pointer bg-cor5 hover:bg-opacity-80 text-white font-bold py-3 px-6 rounded-full text-center transition-all">
      <span>{productReference ? "Image Selected!" : "Upload image 📸"}</span>
@@ -86,8 +139,9 @@ const AddProductForm = () => {
             onChange={(e) => setProductReference(e.target.files[0])} 
           />
     </label>
-</div>
-      <p className='text-cor5'>"Note: If you reload the page, attached images will expire. You can also send them directly to the Pabuyan representative when contacted."</p>
+</div> */}
+      {/* TODO: IMAGE UPLOAD */}
+      {/* <p className='text-cor5'>"Note: If you reload the page, attached images will expire. You can also send them directly to the Pabuyan representative when contacted."</p> */}
   <button className="mt-4 w-full bg-white text-cor1 font-black py-4 rounded-full shadow-xl hover:scale-105 transition-transform"
   onClick={handleAddProduct}
   >
@@ -114,13 +168,16 @@ const AddProductForm = () => {
               <span className="text-cor4 text-xs italic">{product.details || "No details"}</span>
            </div>
           </div>
-          <div className="w-12 h-12 rounded-full overflow-hidden bg-cor1 flex-shrink-0 border border-cor5/30">
+
+          {/*TODO: IMAGE UPLOAD
+           <div className="w-12 h-12 rounded-full overflow-hidden bg-cor1 flex-shrink-0 border border-cor5/30">
+          
   {product.preview ? (
     <img src={product.preview} alt="item" className="w-full h-full object-cover" />
   ) : (
     <div className="w-full h-full flex items-center justify-center text-[10px] text-cor5">N/A</div>
   )}
-</div>
+</div> */}
           <button 
             onClick={() => setWishList(wishList.filter(thisProduct => thisProduct.id !== product.id))}
             className="mr-4 text-cor4 hover:text-red-400 font-bold transition-colors"
@@ -140,7 +197,9 @@ const AddProductForm = () => {
       </div>
     )}
     <div className='w-full flex'>
-    <button className="mt-8 bg-cor5 mx-auto hover:bg-cor4 text-white font-black py-4  rounded-full transition-all transform hover:scale-110">
+    <button className="mt-8 bg-cor5 mx-auto hover:bg-cor4 text-white font-black py-4  px-4 rounded-full transition-all transform hover:scale-110"
+    onClick={handleSubmitWishList}
+    >
     SEND REQUEST 
   </button>
   </div>

@@ -92,12 +92,12 @@ const Profile = () => {
   return (
     <div>
       <NavBar />
-          <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px] md:py-16 py-4 '>
+          <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px] md:py-16 py-8 pb-20 '>
 
   <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2 opacity-80'>
-       <h1 className='py-8 w-3/4 mx-auto font-bold text-cor5 text-center text-[45px]'> Welcome {costumerData.name}!</h1>
+       <h1 className='hidden md:block py-8 w-3/4 mx-auto font-bold text-cor5 text-center text-[45px]'> Welcome {costumerData.name}!</h1>
        
-      <p className='pb-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'> if you have any problem, you can <strong>EDIT</strong> or <strong>DELETE</strong> your profile settings here, or if you prefer, 
+      <p className='pb-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'> <strong>EDIT</strong> or <strong>DELETE</strong> your profile settings here, or if you prefer, 
             reach out to us directly through our social media!</p>
     
            <form onSubmit={handeEditProfile}>

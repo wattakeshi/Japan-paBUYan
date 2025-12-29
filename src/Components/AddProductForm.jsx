@@ -53,7 +53,7 @@ const AddProductForm = () => {
   const userId = localStorage.getItem("pabuyan_user_id");
 
   try {
-    const wishlistRes = await fetch("http://localhost:1337/api/wishlists", {
+    const wishlistRes = await fetch("https://pabuyanbackend.onrender.com/api/wishlists", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -78,7 +78,7 @@ const AddProductForm = () => {
     }
   };
 
-  const res = await fetch("http://localhost:1337/api/requestedproducts", {
+  const res = await fetch("https://pabuyanbackend.onrender.com/api/requestedproducts", {
     method: "POST",
     headers: { "Content-Type": "application/json" }, // Aqui usamos JSON
     body: JSON.stringify(productData),

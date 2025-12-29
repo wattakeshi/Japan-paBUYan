@@ -57,12 +57,16 @@ const Profile = () => {
                     headers: {"Content-Type":"application/json"},
                     body: JSON.stringify({data: editedData})
                 });
-                if(res.ok){
+                if(res.ok){                    
+                    localStorage.setItem("pabuyan_user_name", editedData.name)
                     alert("Profile Updated")
                 }} catch (error) {
       console.error("Error:", error);
     } finally {
       setIsUpdating(false); 
+      navigate("/");
+      window.scrollTo(0, 0);
+      
             }     }
 
 

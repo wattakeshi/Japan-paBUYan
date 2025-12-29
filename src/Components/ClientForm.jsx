@@ -37,6 +37,7 @@ const ClientForm = () => {
          localStorage.setItem("pabuyan_user_id", resJSON.data.documentId);
          localStorage.setItem("pabuyan_user_name", name);
          navigate("/");
+         window.scrollTo(0, 0);
         }else{
           alert("failed to save data.")
         }

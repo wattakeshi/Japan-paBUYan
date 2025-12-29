@@ -1,6 +1,6 @@
 import React from 'react'
 import banner from "../assets/images/banner.png"
-import Search from './AddProductForm'
+import AddProductForm from './AddProductForm'
 const Header = () => {
 
     const username = localStorage.getItem("pabuyan_user_name");
@@ -12,7 +12,7 @@ const Header = () => {
     <div className=' bg-cor2 h-[740px] w-full py-20  '>
           <h1 className='py-4 w-3/4 mx-auto font-bold text-cor5 text-center text-[45px]'> Welcome {username}!</h1>
       <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'>Build your custom request list below. Once we locate your items and have news for you, a member of the Pabuyan team will reach out directly!</p>
-      <Search />
+      <AddProductForm />
     </div>
     </div>
     <div className='block md:hidden lg:hidden'>

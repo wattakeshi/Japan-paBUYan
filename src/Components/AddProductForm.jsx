@@ -16,6 +16,7 @@ const AddProductForm = () => {
   const [productName, setProductName] = useState("");
   const [productDetail, setProductDetail] = useState("");
   const [productQty, setProductQty] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 // TODO: IMAGE UPLOAD
   // const [productReference, setProductReference] = useState(null); 
   // const [previewURL, setPreviewURL] = useState("")
@@ -48,6 +49,7 @@ const AddProductForm = () => {
 
   const handleSubmitWishList = async () => {
   if (wishList.length === 0) return window.alert("Your Wish-List is empty!");
+  setIsSubmitting(true);
   const userId = localStorage.getItem("pabuyan_user_id");
 
   try {
@@ -94,6 +96,9 @@ const AddProductForm = () => {
 
   } catch (error) {
     alert("Error linking your wishlist.");
+  } finally {
+    // Finaliza o carregamento (sucesso ou erro)
+    setIsSubmitting(false);
   }
 };
       
@@ -198,10 +203,13 @@ const AddProductForm = () => {
     )}
     <div className='w-full flex'>
     <button className="mt-8 bg-cor5 mx-auto hover:bg-cor4 text-white font-black py-4  px-4 rounded-full transition-all transform hover:scale-110"
-    onClick={handleSubmitWishList}
+    onClick={handleSubmitWishList} disabled={isSubmitting}
     >
-    SEND REQUEST 
-  </button>
+  {isSubmitting ? (    <div className="flex items-center gap-2">
+      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+      SENDING...
+    </div> ) : ("SEND REQUEST")}
+</button>
   </div>
   </div>
 </div>

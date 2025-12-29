@@ -16,7 +16,17 @@ const AddProductForm = () => {
   const [productName, setProductName] = useState("");
   const [productDetail, setProductDetail] = useState("");
   const [productQty, setProductQty] = useState(1);
+
   const [productReference, setProductReference] = useState(null); 
+  const [previewURL, setPreviewURL] = useState("")
+  useEffect(()=>{
+    if(!productReference){
+      return setPreviewURL("")
+    }
+      const url = URL.createObjectURL(productReference);
+      setPreviewURL(url);
+      return ;
+  },[productReference])
 
 
   const handleAddProduct = () => {
@@ -25,7 +35,8 @@ const AddProductForm = () => {
       name: productName,
       details: productDetail,
       qty: productQty,
-      reference: productReference
+      reference: productReference,
+      preview: previewURL,
     }
     setWishList([...wishList, newProduct])
     
@@ -76,7 +87,7 @@ const AddProductForm = () => {
           />
     </label>
 </div>
-
+      <p className='text-cor5'>"Note: If you reload the page, attached images will expire. You can also send them directly to the Pabuyan representative when contacted."</p>
   <button className="mt-4 w-full bg-white text-cor1 font-black py-4 rounded-full shadow-xl hover:scale-105 transition-transform"
   onClick={handleAddProduct}
   >
@@ -103,15 +114,23 @@ const AddProductForm = () => {
               <span className="text-cor4 text-xs italic">{product.details || "No details"}</span>
            </div>
           </div>
-
+          <div className="w-12 h-12 rounded-full overflow-hidden bg-cor1 flex-shrink-0 border border-cor5/30">
+  {product.preview ? (
+    <img src={product.preview} alt="item" className="w-full h-full object-cover" />
+  ) : (
+    <div className="w-full h-full flex items-center justify-center text-[10px] text-cor5">N/A</div>
+  )}
+</div>
           <button 
-            onClick={() => setWishList(wishList.filter(p => p.id !== product.id))}
+            onClick={() => setWishList(wishList.filter(thisProduct => thisProduct.id !== product.id))}
             className="mr-4 text-cor4 hover:text-red-400 font-bold transition-colors"
           >
             X
           </button>
+          
         </div>
       ))
+      
     ) : (
       <div className="bg-cor2/50 border border-dashed border-cor3 rounded-full py-8">
         <p className='text-cor5 text-center font-medium '>

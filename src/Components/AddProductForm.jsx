@@ -33,6 +33,14 @@ const AddProductForm = () => {
 
 
   const handleAddProduct = () => {
+    if (productName.trim() === "" ){
+      alert("Please enter the product name.");
+      return ;
+    }
+    if (!productQty || productQty <= 0) {
+    alert("Please enter a valid quantity.");
+    return;
+  }
     const newProduct = {
       id: Date.now(),
       name: productName,

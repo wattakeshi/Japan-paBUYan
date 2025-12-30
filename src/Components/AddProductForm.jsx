@@ -148,7 +148,7 @@ const AddProductForm = () => {
   onChange={(e) => 
      setProductQty(e.target.value)
   }
-  placeholder="0"
+  placeholder="1"
 />
     
 </div>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router'
 const AddProductForm = () => {
+
+  const navigate = useNavigate();
 
   const costumerUsername = localStorage.getItem("pabuyan_user_name")
   const [wishList, setWishList] = useState(()=>{
@@ -48,9 +50,9 @@ const AddProductForm = () => {
   }
 
   const handleSubmitWishList = async () => {
-  if (wishList.length === 0) return window.alert("Your Wish-List is empty!");
+  if (wishList.length === 0) return window.alert("Your Wish-List is empty!")
   setIsSubmitting(true);
-  const userId = localStorage.getItem("pabuyan_user_id");
+  const userId = localStorage.getItem("pabuyan_user_id")
 
   try {
     const wishlistRes = await fetch("https://pabuyanbackend.onrender.com/api/wishlists", {
@@ -66,12 +68,14 @@ const AddProductForm = () => {
 
     const wishlistData = await wishlistRes.json();
     const wishlistId = wishlistData.data.documentId; 
-    console.log("ID da Wishlist criada:", wishlistId);
+    localStorage.setItem("wishlistId", wishlistId)
+    console.log("ID da Wishlist criada:", wishlistId)
 
    for (const product of wishList) {
   const productData = {
-    data: { // O Strapi v5 exige o 'data' aqui dentro
+    data: { 
       name: product.name,
+      productstatus: "unseen",
       details: product.details || "",
       qty: Number(product.qty),
       wishlist: wishlistId 
@@ -80,12 +84,12 @@ const AddProductForm = () => {
 
   const res = await fetch("https://pabuyanbackend.onrender.com/api/requestedproducts", {
     method: "POST",
-    headers: { "Content-Type": "application/json" }, // Aqui usamos JSON
+    headers: { "Content-Type": "application/json" }, 
     body: JSON.stringify(productData),
   });
 
   if (!res.ok) {
-    const errorData = await res.json();
+    const errorData = await res.json()
     console.error("ERRO TESTE JSON:", errorData);
   } else {
     console.log("SUCESSO COM JSON!");
@@ -95,16 +99,16 @@ const AddProductForm = () => {
     localStorage.removeItem("pabuyan_wishList");
 
   } catch (error) {
-    alert("Error linking your wishlist.");
+    alert("Error linking your wishlist.")
   } finally {
-    // Finaliza o carregamento (sucesso ou erro)
     setIsSubmitting(false);
+    navigate("/SuccessPage")
   }
 };
       
 
   return (
-<div className="flex flex-col items-center w-full max-w-lg mx-auto gap-6 mt-10">
+<div className="flex flex-col items-center w-full max-w-lg mx-auto gap-6 mt-10 pb-16">
   
 <div className="w-full flex flex-col sm:flex-row items-center gap-4">
      <label className="w-full sm:w-32 text-center sm:text-right font-bold text-cor5/80">Product </label>

@@ -7,6 +7,7 @@ import AboutUS from './Pages/AboutUS.jsx'
 import SignUP from './Pages/SignUP.jsx'
 import PrivateRoute from './Components/PrivateRoute.jsx'
 import Profile from "./Pages/Profile.jsx"
+import SuccessPage from './Pages/SuccessPage.jsx'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <AboutUS/></PrivateRoute>}/>
       <Route path="/Profile" element={<PrivateRoute>
         <Profile/></PrivateRoute>} />
+        <Route path="/SuccessPage" element={<PrivateRoute><SuccessPage/></PrivateRoute>}/>
     </Routes>
     </BrowserRouter>
   )

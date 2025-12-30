@@ -37,10 +37,10 @@ const AddProductForm = () => {
       alert("Please enter the product name.");
       return ;
     }
-    if (!productQty || productQty <= 0) {
+    if ( productQty < 1) {
     alert("Please enter a valid quantity.");
     return;
-  }
+  } else{
     const newProduct = {
       id: Date.now(),
       name: productName,
@@ -55,7 +55,7 @@ const AddProductForm = () => {
     setProductDetail("")
     setProductQty(1)
     // setProductReference(null)
-  }
+  }}
 
   const handleSubmitWishList = async () => {
   if (wishList.length === 0) return window.alert("Your Wish-List is empty!")
@@ -139,10 +139,17 @@ const AddProductForm = () => {
     <div className=" flex items-center">
        <p className="sm:w-32 mx-auto text-center sm:text-right font-bold text-cor5/80">Quantity</p>
        </div>
-        <input 
-        type="number" value={productQty} onChange={(e)=>setProductQty(e.target.value)}
-        className="w-full bg-white/10 border border-white/20 rounded-full px-6 py-3 text-center text-white"
-      />
+       <input
+  type="number"
+  className="w-full flex-1 bg-white/10 border text-center border-white/20 rounded-full px-6 py-3 text-white outline-none focus:border-cor5"
+  inputMode="numeric"     
+  pattern="[0-9]*"        
+  min="1"                 
+  onChange={(e) => 
+     setProductQty(e.target.value)
+  }
+  placeholder="0"
+/>
     
 </div>
 {/* TODO: IMAGE UPLOAD */}

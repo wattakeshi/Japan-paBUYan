@@ -1,98 +1,156 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const ClientForm = () => {
-    const [name, setName] = useState("")
-    const [familyName, setFamilyName] = useState("")
-    const [address, setAddress] = useState("")
-    const [contact, setContact] = useState("")
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(false)
+  const [name, setName] = useState("")
+  const [familyName, setFamilyName] = useState("")
+  const [address, setAddress] = useState("")
+  const [contact, setContact] = useState("")
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
 
-    const API_URL = "https://pabuyanbackend.onrender.com/api/costumers"
-    const handleSubmit = async (e) =>{
-      e.preventDefault();
+  const API_URL = "http://localhost:3000/customers"
 
-      if (!name.trim() || !familyName.trim() || !address.trim() || !contact.trim()) {
-    alert("Please, fill in all fields before signing up!"); return;} 
-    
-      {  const newCostumer = {data:{
-        name: name,
-        familyName: familyName,
-        address: address,
-        contact: contact
-        }}
-        if (loading) return;
-        setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!name.trim() || !familyName.trim() || !address.trim() || !contact.trim()) {
+      alert("Please, fill in all fields before signing up!"); return;
+    }
+    if (loading) return;
+    setLoading(true);
 
-      try{
-        const res = await fetch(API_URL, {
-          method: "POST",
-          headers: {"Content-type" : "application/json"},
-          body: JSON.stringify(newCostumer),
-        });
-        const resJSON = await res.json();
-
-        if(res.ok){
-         localStorage.setItem("pabuyan_user_id", resJSON.data.documentId);
-         localStorage.setItem("pabuyan_user_name", name);
-         navigate("/");
-         window.scrollTo(0, 0);
-        }else{
-          alert("failed to save data.")
-        }
-      }catch (error){
-        console.error("Failure to connect", error)
-      }finally{
-        setLoading(false);
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({ name, familyName, address, contact }),
+      });
+      const resJSON = await res.json();
+      if (res.ok) {
+        localStorage.setItem("pabuyan_user_id", resJSON.costumer.id);
+        localStorage.setItem("pabuyan_user_name", name);
+        navigate("/");
+        window.scrollTo(0, 0);
+      } else {
+        alert("Failed to save data.")
       }
+    } catch (error) {
+      console.error("Failure to connect", error)
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      }
-
-
-    };
   return (
-     <div className='border-4 rounded-xl m-4 border-cor5 px-4 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2 opacity-80'>
-       <h1 className='py-8 w-3/4 mx-auto font-bold text-cor5 text-center text-[45px]'> Get Started!</h1>
-       
-      <p className='pb-4 w-4/5 mx-auto text-cor5 text-center text-[16px]'> Fill out the form to create your wishlist, or if you prefer, 
-            reach out to us directly through our social media!</p>
-    
-            <div className='mx-auto text-center'>
-                <a href="https://www.facebook.com/japanpabuyan" target="_blank"  
-               className='text-cor2 font-bold hover:text-cor4 transition-colors '>
-               <span className='text-center rounded-sm border-4 bg-cor5'>Facebook</span>
-            </a>
-               <span className='text-cor2'>   / /   </span>
-                <a href="https://www.instagram.com/japanpabuyan" target="_blank"  
-               className='text-cor2 font-bold hover:text-cor4 transition-colors '>
-               <span className='text-center rounded-sm border-4 bg-cor5'>Instagram</span>
-            </a>
-              </div>
-         
-     
-            <form  onSubmit={handleSubmit}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className='border-4 rounded-3xl m-4 border-cor5 px-6 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2/90 backdrop-blur-md shadow-2xl mb-20'
+    >
+      <h1 className='py-4 w-full mx-auto font-black text-cor5 text-center text-[40px] md:text-[50px] leading-tight'>
+        Get Started!
+      </h1>
 
-                <p className='pt-4 pb-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Name</p>
-                <input type="text" placeholder='Name' value={name} onChange={((e)=>{setName(e.target.value)})}
-                 className='px-4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2 justify-center'/>
+      <p className='pb-8 w-4/5 mx-auto text-cor5/80 text-center text-[16px] font-medium'>
+        Fill out the form to create your wishlist, or reach out to us directly through our social media!
+      </p>
 
-                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Family name</p>
-                <input type="text" placeholder='Family Name' value={familyName} onChange={((e)=>{setFamilyName(e.target.value)})}
-                className='px-4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2' />
+      <div className='flex flex-col md:flex-row justify-center items-center gap-4 mb-12'>
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          href="https://www.facebook.com/japanpabuyan"
+          target="_blank"
+          className='flex items-center justify-center gap-2 bg-[#1877F2] text-white font-bold py-3 px-8 rounded-full shadow-lg w-full md:w-auto'
+        >
+          <span className='text-lg'>Facebook</span>
+        </motion.a>
 
-                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Address</p>
-                <input type="text" placeholder='Country / Region/Province / City / Barangay' required
-  minLength={15} value={address} onChange={((e)=>{setAddress(e.target.value)})}
-                className='px-4 w-3/4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2' />
+        <motion.a
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          href="https://www.instagram.com/japanpabuyan"
+          target="_blank"
+          className='flex items-center justify-center gap-2 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] text-white font-bold py-3 px-8 rounded-full shadow-lg w-full md:w-auto'
+        >
+          <span className='text-lg'>Instagram</span>
+        </motion.a>
+      </div>
 
-                <p className='py-4 w-4/5 mx-auto text-cor5 text-center text-[20px]'>Contact</p> 
-                <input type="text" placeholder='Instagram @ or Facebook URL' value={contact} onChange={((e)=>{setContact(e.target.value)})}
-                className=' px-4 w-3/4 font-bold text-cor1 bg-cor4 border rounded-full mx-auto block border-cor2'/>            
+      <div className="flex items-center gap-4 mb-10">
+        <div className="h-[1px] bg-cor5/20 flex-grow"></div>
+        <span className="text-cor5/40 font-bold text-xs uppercase tracking-widest">OR USE THE FORM</span>
+        <div className="h-[1px] bg-cor5/20 flex-grow"></div>
+      </div>
 
-                <input type="submit" className=' mt-8 bg-cor4 border  mx-auto block font-bold bg-cor2  ' value={loading ? "Saving..." : "Sign Up"}/>
-            </form>
-    </div>
+      <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-cor5 font-bold ml-4 text-sm uppercase">First Name</label>
+            <input
+              type="text"
+              placeholder='name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className='w-full px-6 py-4 font-bold text-cor5 bg-white border-2 border-cor5/10 rounded-2xl focus:border-cor4 outline-none transition-all shadow-inner'
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-cor5 font-bold ml-4 text-sm uppercase">Family Name</label>
+            <input
+              type="text"
+              placeholder='Family Name'
+              value={familyName}
+              onChange={(e) => setFamilyName(e.target.value)}
+              className='w-full px-6 py-4 font-bold text-cor5 bg-white border-2 border-cor5/10 rounded-2xl focus:border-cor4 outline-none transition-all shadow-inner'
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-cor5 font-bold ml-4 text-sm uppercase">Full Address</label>
+          <input
+            type="text"
+            placeholder='Region, City, Barangay, Street...'
+            required
+            minLength={15}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className='w-full px-6 py-4 font-bold text-cor5 bg-white border-2 border-cor5/10 rounded-2xl focus:border-cor4 outline-none transition-all shadow-inner'
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-cor5 font-bold ml-4 text-sm uppercase">Social Media Contact</label>
+          <input
+            type="text"
+            placeholder='Instagram @handle or FB link'
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
+            className='w-full px-6 py-4 font-bold text-cor5 bg-white border-2 border-cor5/10 rounded-2xl focus:border-cor4 outline-none transition-all shadow-inner'
+          />
+        </div>
+
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          type="submit"
+          disabled={loading}
+          className={`w-full mt-8 py-5 rounded-2xl font-black text-xl uppercase tracking-widest shadow-xl transition-all
+            ${loading ? 'bg-gray-400' : 'bg-cor5 text-white hover:bg-cor4'}`}
+        >
+          {loading ? (
+            <span className="flex items-center justify-center gap-2">
+              <div className="w-5 h-5 border-t-2 border-white rounded-full animate-spin"></div>
+              Saving...
+            </span>
+          ) : "Sign Up Now"}
+        </motion.button>
+      </form>
+    </motion.div>
   )
 }
 

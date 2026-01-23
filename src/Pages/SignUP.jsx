@@ -49,7 +49,7 @@ const SignUP = () => {
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.5, margin: "0px 0px -100px 0px" }}
         transition={{ delay: 0.2, duration: 0.8 }}
         className='border-4 rounded-2xl m-4 border-cor5 px-6 mx-4 md:w-3/4 md:mx-auto bg-cor2/90 backdrop-blur-md shadow-xl relative overflow-hidden'
       >

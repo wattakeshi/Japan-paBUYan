@@ -16,7 +16,7 @@ const SignUP = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={fadeInUp}
         className='border-4 rounded-2xl m-4 border-cor5 px-6 mx-4 md:w-3/4 md:mx-auto py-12 bg-cor2/90 backdrop-blur-md shadow-2xl'
       >

@@ -23,10 +23,10 @@ export default function SuccessPage() {
           <p className="text-xs text-cor4 uppercase mb-2">Copy this message:</p>
           <div className="flex items-center gap-2 justify-between bg-black/20 p-2 rounded">
             <div className="hidden">
-             <code className="text-cor5 text-sm truncate">Hi! My Order ID is {wishlistId}...</code>
+              <code className="text-cor5 text-sm truncate">Hi! My Order ID is {wishlistId}...</code>
             </div>
             <button onClick={copyToClipboard} className="text-white rounded-2xl font-bold bg-cor5 p-2 mx-auto hover:scale-110 transition">
-              {copied? ("Message copied!"):("Click here to copy")}
+              {copied ? ("Message copied!") : ("Click here to copy")}
             </button>
           </div>
         </div>
@@ -35,10 +35,10 @@ export default function SuccessPage() {
           <p className="text-white font-bold">Send it to us via:</p>
           <div className="flex gap-4 justify-center">
             <a href="https://www.instagram.com/japanpabuyan" target="_blank" className="flex items-center gap-2 bg-gradient-to-tr from-yellow-500 to-purple-600 text-white px-6 py-2 rounded-full font-bold">
-               Instagram
+              Instagram
             </a>
             <a href="https://www.facebook.com/japanpabuyan" target="_blank" className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full font-bold">
-               Facebook
+              Facebook
             </a>
           </div>
         </div>

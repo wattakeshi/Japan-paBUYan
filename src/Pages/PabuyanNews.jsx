@@ -6,9 +6,9 @@ const Categories = () => {
 
   return (
     <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px]'>
-    <NavBar />
-     <FacebookPost />
-     <Footer />
+      <NavBar />
+      <FacebookPost />
+      <Footer />
     </div>
   )
 }

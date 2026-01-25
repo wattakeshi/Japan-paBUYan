@@ -10,7 +10,7 @@ const ClientForm = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false)
 
-  const API_URL = "http://localhost:3000/customers"
+  const API_URL = "https://japan-pabuyanbackend2-0.onrender.com/customers"
 
   const handleSubmit = async (e) => {
     e.preventDefault();

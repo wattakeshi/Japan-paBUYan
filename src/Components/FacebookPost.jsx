@@ -4,14 +4,15 @@ const FacebookPost = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    const POSTURL = `https://pabuyanbackend.onrender.com/api/facebook-posts?sort=createdAt:desc`
+    const POSTURL = `https://japan-pabuyanbackend2-0.onrender.com/facebookposts`
 
     const fetchData = async () => {
       try {
         const res = await fetch(POSTURL)
         const result = await res.json()
-        if (result.data) {
-          setPosts(result.data);
+
+        if (result.posts) {
+          setPosts(result.posts);
         }
       } finally {
         setLoading(false)
@@ -40,7 +41,7 @@ const FacebookPost = () => {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 origin-top bg-white
                     scale-[0.64] sm:scale-100 w-[500px] h-[700px]">
             <iframe
-              src={post.URL}
+              src={post.url}
               className="w-full h-[700px]"
               allowFullScreen={true}
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"

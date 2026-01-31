@@ -14,6 +14,13 @@ export const OrderTable = ({ data, refresh }) => {
         }));
     };
 
+    const getStatusClass = (status) => {
+        if (status === "pending") return "bg-yellow-500";
+        if (status === "checked") return "bg-blue-500";
+        if (status === "bought") return "bg-green-500";
+        return "bg-gray-500";
+    };
+
     const handleSaveAll = async (wishlist) => {
         const productsToUpdate = wishlist.requestedProducts.filter(p => edits[p.id]);
 
@@ -117,7 +124,12 @@ export const OrderTable = ({ data, refresh }) => {
                         <tbody>
                             {wishlist.requestedProducts.map((prod) => (
                                 <tr key={prod.id} className="border-b">
-                                    <td className="p-3 font-medium">{prod.name}</td>
+                                    <td className="p-3 font-medium">
+                                        {prod.name}
+                                        <span className={`ml-2 text-[10px] px-2 py-0.5 rounded-full text-white uppercase ${getStatusClass(prod.status)}`}>
+                                            {prod.status}
+                                        </span>
+                                    </td>
                                     <td className="p-3 text-center">
                                         <input
                                             type="number"
@@ -128,13 +140,14 @@ export const OrderTable = ({ data, refresh }) => {
                                     </td>
                                     <td className="p-3 text-center">
                                         <select
+                                            className={`border-2 rounded p-1 font-bold text-white ${getStatusClass(edits[prod.id]?.status || prod.status)}`}
+
                                             defaultValue={prod.status}
                                             onChange={(e) => handleChange(prod.id, 'status', e.target.value)}
-                                            className="border rounded p-1"
                                         >
-                                            <option value="pending">Pending</option>
-                                            <option value="checked">Checked</option>
-                                            <option value="bought">Bought</option>
+                                            <option value="pending" className="bg-white text-black">Pending</option>
+                                            <option value="checked" className="bg-white text-black">Checked</option>
+                                            <option value="bought" className="bg-white text-black">Bought</option>
                                         </select>
                                     </td>
                                     <td className="p-3 text-center">

@@ -1,45 +1,55 @@
-  # Japan-PaBUYan
-An On-Demand E-commerce Platform specifically designed to streamline the assisted buying process of Japanese products for customers in the Philippines.
+# Pabuyan - Export/Import Management System (Japan ↔ Philippines)
 
-# Project Overview
-This project was developed for a client specializing in personal shopping and package forwarding from Japan to the Philippines. Unlike a traditional online store, this platform acts as a high-efficiency Wishlist and Sourcing Tool.
+## 📌 Project Overview
+Pabuyan is a specialized system designed to streamline the proxy buying and shipping process from Japan to the Philippines. The platform bridges the gap between customers and the service owner, automating the creation of wishlists and order management to eliminate redundant manual communication.
 
- How it works:
-Exploration
-Users create their wish list and browse through recommended items.
+### 💼 Business Problem Solved
+Before this system, the client managed orders via manual messaging (SNS/WhatsApp), leading to high overhead, lost information, and communication fatigue. 
+**Solution:** A web platform where customers build wishlists that are directly submitted to a structured admin dashboard.
 
-Simplified Identification
-To reduce friction, users identify themselves with basic contact details (Name/Phone) without the need for complex password-managed accounts.
+---
 
-Wishlist Creation
-Customers add the specific products they want by providing:
+## 🚀 Key Features
 
-Reference Links
-Direct URLs from Japanese marketplaces (Amazon JP, Rakuten, Mercari, etc.).
+### For Customers (Zero Friction)
+* **Guest-First Experience:** To maximize conversion and reduce complexity, customers can create and submit wishlists without a mandatory login/email. 
+* **Smart Wishlist:** Intuitive UI for adding items and shipping details.
 
-Descriptions
-Details such as size, color, or specific instructions.
+### For Admin (Control & Efficiency)
+* **JWT-Protected Dashboard:** Secure administrative panel for order tracking and status management.
+* **Direct Management:** Ability to edit, update, and process customer requests in real-time.
+* **Automated Notifications:** Integration with Webhooks for instant email alerts upon new submissions.
 
-Order Processing
-Once the wishlist is submitted, the data is stored in the backend (Strapi). The final payment, international shipping from Japan, and local delivery in the Philippines are handled privately between the business owner and the customer.
+---
 
-# Tech Stack
-# Frontend
-React.js + Vite
-# Styling
-Tailwind CSS (Mobile-first approach)
-# Backend
-Strapi CMS (Headless)
-# Routing
-React Router Dom
-# Deployment
-Vercel
+## 🛠 Tech Stack & Architecture
 
-# Development Status (Personal Note)
-Disclaimer: This project is being developed during my spare time. Due to my current full-time work schedule, progress is made in focused, incremental daily blocks.
+### **Frontend**
+* **React & TypeScript:** For a type-safe, maintainable codebase.
+* **Tailwind CSS & Framer Motion:** High-fidelity UI with smooth animations for a premium user experience.
+* **Figma:** Full UI/UX design process before implementation.
 
-Current Technical Decisions:
+### **Backend**
+* **Node.js & Express:** Scalable REST API architecture.
+* **Prisma (ORM):** Type-safe database queries.
+* **JWT (JSON Web Token):** Secure authentication for administrative access.
+* **Webhook Integration:** Automated mail notification system.
 
-Static Assets: Currently serving images from the frontend to ensure smooth deployment on free tiers while the final hosting plan is being finalized.
+### **DevOps & Infrastructure**
+* **Docker:** Consistent development and production environments.
+* **Vercel/Render:** CI/CD pipeline for high availability.
+* **Transition:** Successfully migrated the system from a **Strapi MVP** to a custom-built production architecture for better performance and flexibility.
 
-UX Strategy: Priority is given to mobile responsiveness, as the target audience in the Philippines primarily accesses the service via smartphone.
+---
+
+## 📈 Engineering Highlights
+
+* **Architecture Migration:** Led the transition from a low-code MVP (Strapi) to a custom Node.js/Prisma backend to support specific business rules and improve long-term maintainability.
+* **Authentication Strategy:** Implemented a "Hybrid Auth" model—JWT for administrative security while keeping the customer-side open to minimize friction and bounce rates.
+* **Full-Cycle Ownership:** Responsible for the entire lifecycle, from Figma wireframing to Linux-based server maintenance.
+
+---
+
+## 🌐 Links & Contact
+- **Live Demo:** [https://japan-pabuyan.vercel.app/]
+- **Developer:** Wilean Takeshi Watanabe

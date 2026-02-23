@@ -11,7 +11,7 @@ const SignUP = () => {
   }
 
   return (
-    <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px] bg-fixed pt-[20px] pb-10'>
+    <div className='min-h-screen w-full bg-[url("/sakurabg.png")] bg-[length:400px]  bg-fixed pt-[20px] '>
 
       <motion.div
         initial="hidden"
